@@ -1,0 +1,301 @@
+//
+//  PrefixHeader.pch
+//  WRMS
+//
+//  Created by mymac on 16/8/18.
+//  Copyright © 2016年 YangJingchao. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+
+#endif /* PrefixHeader_pch */
+
+// 屏幕宽高
+#define kWidth [UIScreen mainScreen].bounds.size.width
+#define kHeight [UIScreen mainScreen].bounds.size.height
+
+//百度地图
+#define BaiduMapKey @"UahjqB6wBRi8ZaCZKZw8r9wODg5pa0rQ"
+
+
+//FrameWork
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import <BaiduMapAPI_Search/BMKGeocodeSearch.h>
+#import <BaiduMapAPI_Utils/BMKUtilsComponent.h>
+#import <BaiduMapAPI_Base/BMKMapManager.h>
+#import <AVFoundation/AVFoundation.h>
+#import <CoreLocation/CLLocationManager.h>
+
+
+//JPUSH
+static NSString *appKey  = @"cb833d6d06fb46bba76eaf6c";
+static NSString *channel = @"Publish channel";
+static BOOL isProduction = FALSE;
+
+//IP
+// 内网地址
+static NSString *defaultWebServiceUrl=@"http://192.168.0.70:8099/WRMSTOI/services/handsetServices?wsdl";
+// 关玉亮地址
+//static NSString *defaultWebServiceUrl=@"http://192.168.0.52:8080/WRMS-TOI/services/handsetServices?wsdl";
+// 张健地址
+//static NSString *defaultWebServiceUrl = @"http://192.168.0.58:8080/WRMS-TOI/services/handsetServices?wsdl";
+// 蒋守业地址
+//static NSString *defaultWebServiceUrl=@"http://192.168.0.99:8080/WRMS-TOI/services/handsetServices?wsdl";
+// 刘凯服务器地址
+//static NSString *defaultWebServiceUrl=@"http://192.168.0.59:8080/WRMS-TOI/services/handsetServices?wsdl";
+//命名空间
+static NSString *defaultWebServiceNameSpace=@"http://impl.webservice.server.yongnuo.com";
+
+
+// 监测点采集图片上传地址
+#define UploadPicWithInspection @"http://192.168.0.70:8099/WRMS/trMonitorPointItem/LBS_UploadMonitorPointItemFile.do"
+
+//新增异常报警 媒体URL、上传URL（内网地址）
+#define UploadMediaURL @"http://192.168.0.70:8099/WRMS/trAlarmOrderLogItem/LBS_UploadOrderLogItemFile.do"
+
+//---报警工单状态处理---
+#define UploadPIcError @"/trAlarmOrderLogItem/LBS_UploadOrderLogItemFile.do"
+
+//基础树形菜单
+#define LBS_QueryBaseParamTreeByTypeId @"LBS_QueryBaseParamTreeByTypeId"//参数：typeId
+//获取单位列表
+#define LBS_QueryUnitTree @"LBS_QueryUnitTree"
+
+
+// 第三方
+#import "JPUSHService.h"
+#import "UIColor-Expanded.h"
+#import "UIButton+bottomText.h"
+#import "SVProgressHUD.h"
+#import "IQKeyboardManager.h"
+#import "RealReachability.h"
+#import "AFNetworking.h"
+#import "SDAutoLayout.h"
+#import "UIView+SDAutoLayout.h"
+#import "UITableView+SDAutoTableViewCellHeight.h"
+#import "MJRefresh.h"
+#import "MJChiBaoZiHeader.h"
+#import "MJChiBaoZiFooter.h"
+#import "KTActionSheet.h"
+#import "MyTextField.h"
+#import "YYWebImage.h"
+#import "LYPhoto.h"
+#import "LYPhotoBrowser.h"
+#import "ZXVideoPlayerViewController.h"
+#import "TMapView.h"
+#import "MyAnnotation.h"
+#import "UIImageView+WebCache.h"
+#import "ASIFormDataRequest.h"
+#import "JKImagePickerController.h"
+#import "JKPhotoBrowser.h"
+#import "PhotoCell.h"
+#import "UIViewController+KNSemiModal.h"
+
+// 常引用的类
+
+#import "AppDelegate.h"
+#import "utils.h"
+
+
+// YN组件
+#import "YNRequestWithArgs.h"
+#import "YNRequest.h"
+#import "YNTableView.h"
+#import "YNLocation.h"
+#import "YNNavigationRightBtn.h"
+#import "YNVoiceRecordVC.h"
+#import "YNVoicePlayVC.h"
+#import "YNVedioRecordVC.h"
+#import "YNVedioPlayerVC.h"
+#import "YNLocation.h"
+#import "YNCommonAlert.h"
+
+// Cell
+#import "inspectionCell.h"
+
+
+// ApiService
+#import "InspectionApi.h"
+#import "EventManagementApi.h"
+#import "MainApi.h"
+#import "DataAlyApi.h"
+
+// Color
+#define numberTitleColor      @"527397"
+#define nonamicColor @"7F7F7F"
+#define midGrayColor     @"7F7F7F"
+#define correctColor   @"f96869"
+#define installColor     @"00c0f1"
+#define changeColor      @"ffa230"
+#define withDrawColor    @"c27c34"
+#define withNotDrawColor @"3eb2c4"
+#define layerBorderColor @"8c8c8c"
+#define addressColor @"e6e3e3"
+
+//-----------------推送-----------------
+#define LBS_CheckUserPushInfo @"LBS_CheckUserPushInfo"
+
+//-----------------首页权限--------------
+#define LBS_QueryNavigationBySysId @"LBS_QueryNavigationBySysId"
+
+// 首页获取异常报警和报警工单中处置中的工单个数
+#define LBS_AlarmAndOrderUndoneCount @"LBS_AlarmAndOrderUndoneCount"
+
+//-----------------更多-----------------
+// 登录
+#define LBS_UserLogin      @"LBS_UserLogin"
+//修改密码
+#define LBS_UpdateUserPwd  @"LBS_UpdateUserPwd"
+//意见反馈
+#define LBS_CreateFeedback @"LBS_CreateFeedback"
+
+//-----------------监测点采集-----------------
+// 监测点列表
+#define LBS_QueryMonitorPointList @"LBS_QueryMonitorPointList"
+// 获取监测点图片
+#define LBS_QueryMonitorPointItemList @"LBS_QueryMonitorPointItemList"
+// 新增监测点
+#define LBS_CreateMonitorPoint    @"LBS_CreateMonitorPoint"
+// 查询监测点类别
+#define LBS_QueryMonitorPointList @"LBS_QueryMonitorPointList"
+// 修改监测点
+#define LBS_UpdateIspePoint       @"LBS_UpdateIspePoint"
+//监测点类型列表
+#define LBS_QueryMonitorPointTypeList @"LBS_QueryMonitorPointTypeList"
+//-----------------设备安装-----------------
+// 查询终端信息列表
+#define LBS_QueryMchnList             @"LBS_QueryMchnList"
+
+//  设备安装、更换
+#define LBS_UpdateMonitorPointMchn    @"LBS_UpdateMonitorPointMchn"
+
+//检测终端状态
+#define LBS_DetectionMchnState        @"LBS_DetectionMchnState"
+
+//-----------------异常报警--------------------
+//报警列表
+#define LBS_QueryAlarmOrderList    @"LBS_QueryAlarmOrderList"
+//处理工单状态
+#define LBS_UpdateAlarmOrder       @"LBS_UpdateAlarmOrder"
+//报警处理记录
+#define LBS_QueryAlarmOrderLogList @"LBS_QueryAlarmOrderLogList"
+#define LBS_QueryAlarmOrderLogItem @"LBS_QueryAlarmOrderLogItem"
+//创建新报警
+#define LBS_CreateAlarmOrder       @"LBS_CreateAlarmOrder"
+
+//-----------------报警工单--------------------
+//报警工单列表
+#define LBS_QueryAlarmOrderTaskList @"LBS_QueryAlarmOrderTaskList"
+//任务计划
+#define  LBS_QueryTaskList                       @"LBS_QueryTaskList"
+//派发人员列表
+#define LBS_QueryIssuedUserList                @"LBS_QueryIssuedUserList"
+//派发单位列表
+#define LBS_QueryIssuedUnitList  @"LBS_QueryIssuedUnitList"
+//下发事件工单
+#define LBS_IssuedAlarmOrder @"LBS_IssuedAlarmOrder"
+
+//-----------------位置纠错--------------------
+//获取周围的水位列表
+#define  LBS_QueryNearbyPoints     @"LBS_QueryNearbyPoints"
+// 位置纠错
+#define LBS_CreateMonitorPointCorrection @"LBS_CreateMonitorPointCorrection"
+
+//---------------------消息通知-----------------
+/**
+ *  消息通知
+ *
+ *  @return
+ */
+#define LBS_QueryMessageList @"LBS_QueryMessageList"
+
+//---------------------数据分析-----------------
+/**
+ *  报警工单状态
+ *
+ *  @param
+ *
+ *  @return
+ */
+#define LBS_StatisticsAlarmOrderNumberByCondition @"LBS_StatisticsAlarmOrderNumberByCondition"
+
+/**
+ *  报警类别汇总
+ *
+ *  @param
+ *
+ *  @return
+ */
+#define LBS_StatisticsAlarmingNumberByCondition @"LBS_StatisticsAlarmingNumberByCondition"
+
+/**
+ *  水位采集月进程 （统计区间默认为一年）
+ *
+ *  @param startDate（2015-05）、endDate、userAccnt
+ *
+ *  @return
+ */
+#define LBS_CoversGatherStatisticsByMonth @"LBS_CoversGatherStatisticsByMonth"
+
+/**
+ *  水位采集日进程
+ *
+ *  @param statisticDate（2015-05）、userAccnt
+ *
+ *  @return
+ */
+#define LBS_CoversGatherStatisticsByDay @"LBS_CoversGatherStatisticsByDay"
+
+/**
+ *  报警工单年效率 （统计区间默认为一年）
+ *
+ *  @param startDate（2015-05）、endDate、userAccnt
+ *
+ *  @return
+ */
+#define LBS_StatisticsAlarmOrderByHour @"LBS_StatisticsAlarmOrderByHour"
+
+/**
+ *  报警工单月效率
+ *
+ *  @param startDate（2015-05）、endDate、userAccnt
+ *
+ *  @return
+ */
+#define LBS_StatisticsAlarmOrderByMonth @"LBS_StatisticsAlarmOrderByMonth"
+
+/**
+ *  报警工单日效率
+ *
+ *  @param startDate（2015-05）、userAccnt
+ *
+ *  @return
+ */
+#define LBS_StatisticsAlarmOrderByDay @"LBS_StatisticsAlarmOrderByDay"
+/**
+ *  水位趋势月统计
+ *
+ *  @param startDate（2015-05）、endDate、userAccnt
+ *
+ *  @return
+ */
+#define LBS_StatisticsWaterMchnByMonth @"LBS_StatisticsWaterMchnByMonth"
+/**
+ *  水位趋势日统计
+ *
+ *  @param statisticDate（2015-05）、userAccnt
+ *
+ *  @return
+ */
+#define LBS_StatisticsWaterMchnByDay @"LBS_StatisticsWaterMchnByDay"
+
+//--------------------------------------------END---------------------------------------------
+
+
